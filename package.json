@@ -11,6 +11,8 @@
     "test:coverage": "vitest run --coverage",
     "lint": "eslint --ignore-path .gitignore --fix src",
     "prettier": "prettier src --write",
+    "deploy": "npm run build && cd cdk_deployment && cdk deploy",
+    "destroy": "cd cdk_deployment && cdk destroy -f",
     "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
     "client:deploy:nc": "npm run client:deploy -- --no-confirm",
     "client:build:deploy": "npm run build && npm run client:deploy",
