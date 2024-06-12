@@ -13,8 +13,8 @@ export class CdkDeploymentStack extends cdk.Stack {
 
     const shopAutoBucket = new s3.Bucket(this, "ShopAutoBucket", {
       websiteIndexDocument: "index.html",
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ACLS,
-      publicReadAccess: true,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      // publicReadAccess: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
 
