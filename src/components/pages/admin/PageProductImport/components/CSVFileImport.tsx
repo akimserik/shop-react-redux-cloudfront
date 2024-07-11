@@ -32,6 +32,14 @@ export default function CSVFileImport({
       return;
     }
 
+    // Retrieve the authorization token from localStorage
+    const authorizationToken = localStorage.getItem("authorization_token");
+
+    if (!authorizationToken) {
+      console.error("Authorization token is not available!");
+      return;
+    }
+
     console.log("...getting signed URL from:", url);
 
     // Get the presigned URL
@@ -40,6 +48,9 @@ export default function CSVFileImport({
       url,
       params: {
         name: encodeURIComponent(file.name),
+      },
+      headers: {
+        Authorization: `Basic ${authorizationToken}`,
       },
     });
 
